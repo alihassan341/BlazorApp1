@@ -1,0 +1,40 @@
+.btn-right {
+    height: 25px;
+    border: none;
+    border-radius: 50px;
+}
+
+.btn-left {
+    height: 25px;
+    border: none;
+    border-radius: 50px;
+}
+.btn {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+    .btn i {
+        font-size: 12px;
+    }
+
+.w-3 {
+    width: 3% !important;
+}
+
+.w-94 {
+    width: 94% !important;
+}
+
+.f-s-12 {
+    font-size: 12px !important;
+}
+
+.f-w-600 {
+    font-weight: 600;
+}
+
+.pointer {
+    cursor: pointer;
+}
+

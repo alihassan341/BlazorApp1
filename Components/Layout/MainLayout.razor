@@ -1,23 +1,24 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
+    <div class="d-flex h-100 w-100">
+
+    <div class="left-menu w-18 overflow h-100">
+            <NavMenu />
+@*             createElement="elementHandler" *@
     </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+    <div class="content d-flex w-62">
+            <Controls />
+   </div>
+@*         @ref="controlsRef" *@
+    </div>
 </div>
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
+@code {
+    // private Controls? controlsRef;
+
+    // private void elementHandler()
+    // {
+    //     controlsRef?.HandleButtonClick();
+    // }
+}

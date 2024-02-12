@@ -1,30 +1,51 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">BlazorApp1</a>
+﻿<div id="left-menu" class="">
+    <div>
+        <div class="accordion" id="defaultAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <span class="accordion-button m-0 f-s-13" data-bs-toggle="collapse"
+                       data-bs-target="#defaultField" aria-expanded="true" aria-controls="collapseOne">
+                        Default Fields
+                    </span>
+                </h2>
+                <div class="accordion-collapse collapse show text-center pt-2 pb-2" id="defaultField"
+                     data-bs-parent="#defaultAccordion">
+                    @foreach (var obj in defautBtn)
+                    {
+@*                         @onclick
+= "createElement" *@
+                        <button class="btn btn-outline-secondary btn-sm m-1">
+                            <i class="@obj.Icon"></i>
+                            @obj.Name
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+@code {
+    // [Parameter]
+    // public EventCallback element { get; set; }
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
+    // private async Task createElement()
+    // {
+    //     await element.InvokeAsync();
+    // }
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
+    List<buttinCls> defautBtn = new List<buttinCls>
+    {
+        new buttinCls { Icon = "fa fa-envelope-o", Name = "Email" },
+        new buttinCls { Icon = "fa fa-phone-square", Name = "Cellphone" },
+        new buttinCls { Icon = "fa fa-pencil", Name = "URL" },
+        new buttinCls { Icon = "fa fa-location-arrow", Name = "Region" },
+        new buttinCls { Icon = "fa fa-drivers-license-o", Name = "Id Number" }
+    };
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
-</div>
-
+    public class buttinCls
+    {
+        public string? Icon { get; set; }
+        public string? Name { get; set; }
+    };
+}
