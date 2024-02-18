@@ -11,7 +11,7 @@
                      data-bs-parent="#defaultAccordion">
                     @foreach (var obj in defautBtn)
                     {
-                        <button class="btn btn-outline-secondary btn-sm m-1">
+                    <button class="btn btn-outline-secondary btn-sm m-1" @onclick="(() => CreateElement(obj?.Name))">
                             <i class="@obj.Icon"></i>
                             @obj.Name
                         </button>
@@ -98,7 +98,7 @@
         new buttonCls { Icon = "fa fa-pencil", Name = "File" },
     };
 
-    List<buttonCls> defautBtn = new List<buttonCls>
+    private List<buttonCls> defautBtn = new List<buttonCls>
     {
         new buttonCls { Icon = "fa fa-envelope-o", Name = "Email" },
         new buttonCls { Icon = "fa fa-phone-square", Name = "Cellphone" },
@@ -107,9 +107,20 @@
         new buttonCls { Icon = "fa fa-drivers-license-o", Name = "Id Number" }
     };
 
-    public class buttonCls
+    public void CreateElement(string? elementName)
+    {
+        if (elementName != null) {
+            Console.WriteLine($"Creating element Successfully: {elementName}");
+        }
+        else {   
+            Console.WriteLine("Name is Null...!");
+        }
+    }
+
+    private class buttonCls
     {
         public string? Icon { get; set; }
         public string? Name { get; set; }
     };
+
 }
